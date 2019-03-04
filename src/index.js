@@ -5,12 +5,12 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import QuakeListReducer from './reducers/QuakeListReducer';
 
-const store = createStore(QuakeListReducer);
+// const store = createStore(QuakeListReducer);
 
 ReactDOM.render(
-  <Provider>
-    <App />
-  <Provider>,
+  // <Provider >
+    <App />,
+  // </Provider>,
   document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
