@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import QuakeListReducer from './reducers/QuakeListReducer';
 import thunkMiddleware from 'redux-thunk';
+import './index.css';
 
 
 const store = createStore(QuakeListReducer, applyMiddleware(thunkMiddleware));

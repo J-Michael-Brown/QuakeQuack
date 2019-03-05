@@ -10,16 +10,13 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {};
-    console.log('app props',props);
     this.getQuakeData = this.getQuakeData.bind(this)
   }
 
   getQuakeData(){
     const { dispatch } = this.props;
     const quakePromise = QuakeQueryActionCreator();
-    console.log('quakePromise', quakePromise);
     quakePromise.then((action)=>{
-      console.log("action", action);
       // this.setState(Object.assign({}, this.state, {message: action.quakes[0]}))
       return dispatch(action);
     })

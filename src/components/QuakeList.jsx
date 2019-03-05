@@ -3,18 +3,24 @@ import Quake from './Quake';
 import PropTypes from 'prop-types';
 
 function QuakeList(props){
-  console.log(props);
+
+  const divStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+
+  }
 
   return (
-    <div>
-      <h2>This is the QuakeList</h2>
-      {props.quakeList.map((quake, index)=>
-        <Quake
-          quake={quake.properties}
-          key={index} />
-      )}
-    </div>
-
+    <React.Fragment>
+      <h2>Significant Earthquakes around the world over the last month</h2>
+      <div style={divStyle}>
+        {props.quakeList.map((quake, index)=>
+          <Quake
+            quake={quake.properties}
+            key={index} />
+        )}
+      </div>
+    </React.Fragment>
   );
 };
 

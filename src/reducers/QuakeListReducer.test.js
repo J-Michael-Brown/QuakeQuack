@@ -9,7 +9,6 @@ describe('QuakeListReducer', () => {
 
   test('QUAKE_QUERY should return a new list of the last month\s most recent significant earthquakes', () => {
     let actionPromise = QuakeQueryActionCreator();
-    console.log('actionpromise', actionPromise);
     actionPromise.then((action)=>{
       expect(QuakeListReducer({}, action)).toEqual(
         expect.arrayContaining([

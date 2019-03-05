@@ -4,17 +4,28 @@ import PropTypes from 'prop-types';
 function Quake(props){
   const {title, mmi, url, sig, type, time} = props.quake;
   const newDate = new Date(time);
-  console.log('quake ', props);
-  console.log('quake dot title', title);
+
+  const divStyle = {
+    width: '300px',
+    textAlign: 'center',
+    color: 'white',
+    backgroundColor: 'grey',
+    margin: '10px',
+    borderRadius: '4px',
+    boxShadow: '5px 5px 10px #222'
+  }
+
+  const pStyle = {
+    textAlign: 'center',
+  }
+
   return (
-    <div>
+    <div style={divStyle}>
       <h4>{title}</h4>
-      <ul>
-        <li>MMI: {mmi} </li>
-        <li>Significance: {sig} </li>
-        <li>Type: {type} </li>
-        <li>URL: {url}</li>
-      </ul>
+      <p style={pStyle}>MMI: {mmi} </p>
+      <p style={pStyle}>Significance: {sig} </p>
+      <p style={pStyle}>Type: {type} </p>
+      <p style={pStyle}> <a href={url}>Event Page</a> </p>
     </div>
   );
 };
