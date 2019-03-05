@@ -5,10 +5,10 @@ function QuakeListReducer (initialState = {}, action){
   let newState;
   switch (action.type) {
     case 'QUAKE_QUERY':
-      console.log('were in the case');
+    console.log("Hello!");
       newState = {...initialState, quakes: action.quakes}
+      console.log('reducer newstate ',newState);
       return newState;
-
     default:
       return initialState;
 

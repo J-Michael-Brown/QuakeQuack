@@ -9,33 +9,50 @@ class App extends Component {
 
   constructor(props){
     super(props);
-
+    this.state = {};
+    console.log('app props',props);
+    this.getQuakeData = this.getQuakeData.bind(this)
   }
 
   getQuakeData(){
-    console.log('quack quack.')
     const { dispatch } = this.props;
     const quakePromise = QuakeQueryActionCreator();
+    console.log('quakePromise', quakePromise);
     quakePromise.then((action)=>{
-      dispatch(action);
+      console.log("action", action);
+      // this.setState(Object.assign({}, this.state, {message: action.quakes[0]}))
+      return dispatch(action);
     })
-  }
+  };
+
 
   render() {
-    return (
-      <div>
-        <button onClick={this.getQuakeData}>
-          Quack the Quakes
-        </button>
-        <QuakeList quakeList= {this.props.quakes}/>
-      </div>
-    );
+    if(!this.props.quakes){
+      return (
+        <div>
+          <button onClick={this.getQuakeData}>
+            Quack the Quakes
+          </button>
+          <p>loading...</p>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <button onClick={this.getQuakeData}>
+            Quack the Quakes
+          </button>
+          <QuakeList quakeList= {this.props.quakes}/>
+        </div>
+      );
+    }
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state =>{
   return {
-    quakes: state.quakes
+    quakes: state.quakes,
+    info: 'click the update button!'
   }
 };
 
@@ -52,7 +69,7 @@ App.propTypes = {
       }),
       id: PropTypes.string
     })
-  ).isRequired
+  )
 }
 
-export default connect()(App);
+export default connect(mapStateToProps)(App);
