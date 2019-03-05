@@ -1,7 +1,8 @@
 import QuakeQuery from '../api';
 
 function QuakeQueryActionCreator() {
-  return QuakeQuery().then((newQuakes)=>{
+  const apiResult = QuakeQuery()
+  return apiResult.then((newQuakes)=>{
     console.log('newQuakes', newQuakes);
     return(
       {
